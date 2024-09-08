@@ -1,0 +1,152 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Girasol Animado</title>
+    <style>
+        body {
+            margin: 0;
+            background-color: #f7d6e0; /* Fondo rosa */
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+            font-family: Arial, sans-serif;
+        }
+
+        .plant {
+            position: relative;
+            width: 150px;
+            height: 350px;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            flex-direction: column;
+        }
+
+        .stem {
+            width: 10px;
+            height: 150px;
+            background-color: #0aaf05;
+            border: 2px solid black; /* Delineado del tallo */
+            position: absolute;
+            top: 130px; /* Ajustado para que quede bien con la cabeza de la flor */
+            z-index: 0; /* Coloca el tallo detrás de la cabeza */
+            animation: sway 3s ease-in-out infinite;
+            transform-origin: center bottom;
+        }
+
+        .leaf {
+            position: absolute;
+            width: 60px;
+            height: 40px;
+            background-color: #0aaf05;
+            border-radius: 80% 60% 0 50%;
+            border: 2px solid black; /* Delineado de las hojas */
+            transform-origin: center bottom;
+            animation: sway 3s ease-in-out infinite;
+        }
+
+        .leaf.left {
+            left: 15px;
+            top: 160px; /* Pegada al tallo */
+            transform: rotate(-45deg);
+        }
+
+        .flower {
+            position: absolute;
+            top: 50px;
+            width: 100px;
+            height: 100px;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            animation: sway 3s ease-in-out infinite;
+            transform-origin: center bottom;
+            z-index: 2; /* Coloca la cabeza de la flor encima del tallo */
+        }
+
+        /* Pétalos del girasol */
+        .petal {
+            position: absolute;
+            width: 40px;
+            height: 40px;
+            background-color: yellow;
+            border-radius: 50%;
+            border: 2px solid black; /* Delineado de los pétalos */
+        }
+
+        .petal:nth-child(1) { transform: rotate(0deg) translate(45px); }
+        .petal:nth-child(2) { transform: rotate(45deg) translate(45px); }
+        .petal:nth-child(3) { transform: rotate(90deg) translate(45px); }
+        .petal:nth-child(4) { transform: rotate(135deg) translate(45px); }
+        .petal:nth-child(5) { transform: rotate(180deg) translate(45px); }
+        .petal:nth-child(6) { transform: rotate(225deg) translate(45px); }
+        .petal:nth-child(7) { transform: rotate(270deg) translate(45px); }
+        .petal:nth-child(8) { transform: rotate(315deg) translate(45px); }
+
+        /* Centro del girasol */
+        .center {
+            position: relative;
+            width: 60px;
+            height: 60px;
+            background-color: brown;
+            border-radius: 50%;
+            z-index: 1;
+            border: 2px solid black; /* Delineado del centro */
+        }
+
+        .pot {
+            width: 70px;
+            height: 50px;
+            background-color: brown;
+            border-top-left-radius: 10px;
+            border-top-right-radius: 10px;
+            position: absolute;
+            bottom: 0;
+        }
+
+        @keyframes sway {
+            0% {
+                transform: rotate(0deg);
+            }
+            50% {
+                transform: rotate(5deg);
+            }
+            100% {
+                transform: rotate(0deg);
+            }
+        }
+
+        .message {
+            position: absolute;
+            top: -80px; /* Ajustado para mejor ubicación */
+            text-align: center;
+            font-size: 1.5rem;
+            color: #ff1744;
+        }
+    </style>
+</head>
+<body>
+
+    <div class="plant">
+        <div class="message">I Love You ❤️</div>
+        <div class="flower">
+            <div class="petal"></div>
+            <div class="petal"></div>
+            <div class="petal"></div>
+            <div class="petal"></div>
+            <div class="petal"></div>
+            <div class="petal"></div>
+            <div class="petal"></div>
+            <div class="petal"></div>
+            <div class="center"></div>
+        </div>
+        <div class="stem"></div>
+        <div class="leaf left"></div> <!-- Solo queda una hoja -->
+        <div class="pot"></div>
+    </div>
+
+</body>
+</html>
